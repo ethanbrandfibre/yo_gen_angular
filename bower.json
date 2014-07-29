@@ -18,5 +18,17 @@
     "angular-mocks": "1.2.16",
     "angular-scenario": "1.2.16"
   },
-  "appPath": "app"
+  "appPath": "app",
+  "homepage": "https://github.com/ethanbrandfibre/yo_gen_angular",
+  "authors": [
+    "ethan <ethan@brandfibre.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
