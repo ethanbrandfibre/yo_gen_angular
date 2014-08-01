@@ -9,26 +9,20 @@
  * Main module of the application.
  */
 angular
-  .module('yoGenAngularApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-        'ui.bootstrap'
+  .module('yoGenAngularApp', ['phonecatFilters',
+    'ngRoute'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when('/phones', {
+        templateUrl: 'components/phone-list.html',
+        controller: 'PhoneListCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/phones/:phoneId', {
+        templateUrl: 'components/phone-detail.html',
+        controller: 'PhoneDetailCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/phones'
       });
   });

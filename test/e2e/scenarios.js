@@ -13,23 +13,31 @@ describe('PhoneCat App', function() {
         var query = element(by.model('query'));
 
 
-        it('should filter the phone list as user types into the search box', function() {
+//        it('should filter the phone list as user types into the search box', function() {
+//
+//            expect(phoneList.count()).toBe(3);
+//
+//            query.sendKeys('nexus');
+//            expect(phoneList.count()).toBe(1);
+//
+//            query.clear();
+//            query.sendKeys('motorola');
+//            expect(phoneList.count()).toBe(2);
+//        });
+//        it('should display the current filter value in the title bar', function() {
+//            query.clear();
+//            expect(browser.getTitle()).toMatch(/Google Phone Gallery:\s*$/);
+//
+//            query.sendKeys('nexus');
+//            expect(browser.getTitle()).toMatch(/Google Phone Gallery: nexus$/);
+//        });
 
-            expect(phoneList.count()).toBe(3);
-
+        it('should render phone specific links', function() {
             query.sendKeys('nexus');
-            expect(phoneList.count()).toBe(1);
-
-            query.clear();
-            query.sendKeys('motorola');
-            expect(phoneList.count()).toBe(2);
-        });
-        it('should display the current filter value in the title bar', function() {
-            query.clear();
-            expect(browser.getTitle()).toMatch(/Google Phone Gallery:\s*$/);
-
-            query.sendKeys('nexus');
-            expect(browser.getTitle()).toMatch(/Google Phone Gallery: nexus$/);
+            element.all(by.css('.phones li a')).first().click();
+            browser.getLocationAbsUrl().then(function(url) {
+                expect(url.split('#')[1]).toBe('/phones/nexus-s');
+            });
         });
     });
 });
